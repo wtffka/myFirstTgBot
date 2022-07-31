@@ -17,6 +17,11 @@ application {
     mainClass = 'com.example.simpletelegrambot.SimpleTelegramBotApplication'
 }
 
+compileJava {
+    options.release = 17
+    options.encoding = 'UTF-8'
+}
+
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
@@ -29,3 +34,5 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+task stage(dependsOn: [clean, installDist])
